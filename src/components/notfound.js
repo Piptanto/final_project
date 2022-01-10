@@ -11,7 +11,7 @@ export default function NotFound() {
         <Header />
         <div className="notFound">
         <h2>Page not found</h2>
-        <img src="desert-1913130_1920.jpg" alt="Car in the Desert" className='notFoundPicture'/>
+        <img src="/desert-1913130_1920.jpg" alt="Car in the Desert" className='notFoundPicture'/>
         </div>
         < Footer />
         </div>

@@ -2,7 +2,8 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './home';
 import VehicleDetails from './vehicleDetails';
-import NotFound from './notfound'
+import Articles from './articles';
+import NotFound from './notfound';
 
 export default function PageRoutes() {
 
@@ -10,6 +11,7 @@ export default function PageRoutes() {
       <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/vehicle' element={<VehicleDetails />} />
+          <Route path='/article/:id' element={<Articles />} />
           <Route path="*" element={<NotFound />}/>
       </Routes>
     )
