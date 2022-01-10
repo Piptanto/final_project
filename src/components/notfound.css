@@ -1,5 +1,4 @@
 .notFoundPicture {
-    /* filter: grayscale(100%); */
     width: 100vw;
     object-fit: cover;
     margin-bottom: 10px;

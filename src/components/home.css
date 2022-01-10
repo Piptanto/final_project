@@ -24,7 +24,7 @@
   }
   
   .inputVIN {
-    width: 20vw;
+    width: 300px;
     height: 40px;
     background-color: rgb(19, 179, 214);
     color: white;
@@ -80,7 +80,3 @@
   .link {
     color: #bc8f8f;
     }
-
-  #hint {
-    font-size: 24px !important;
-  }
