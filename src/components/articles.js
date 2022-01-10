@@ -4,14 +4,14 @@ import Header from './header'
 import './articles.css'
 import Footer from './footer';
 import axios from 'axios';
-import {ARTICLE_SERVER} from '../utils/servers'
+import {CUSTOMER_SERVER} from '../utils/servers'
 
 
 export default function Articles() {
     
     const [ showSpinner, setShowState] = useState(false)
 
-    const [articles, setArticles] = useState([]);
+    const [article, setArticle] = useState([]);
 
     const [errorCode, setErrorCode] =useState(false);
 
@@ -22,11 +22,11 @@ export default function Articles() {
   
     const loadEntries = async () => {
       setShowState(true) // show spinner
+      console.log(id);
       try {
-      const serverResponse = await axios.get(`${ARTICLE_SERVER}/findarticle/${id}`);
-      setArticles(serverResponse.data);
-
-      console.log(articles);
+      const serverResponse = await axios.get(`${CUSTOMER_SERVER}/find?_id=${id}`);
+      setArticle(serverResponse.data);
+      console.log(serverResponse.data);
 
       setTimeout(() => {
         setShowState(false)}, 2000) // hide spinner after 2s
@@ -65,18 +65,19 @@ export default function Articles() {
             <div>
                 <h2>Page not found</h2>
                 <img src="/desert-1913130_1920.jpg" alt="Car in the Desert" className='notFoundPicture'/>   
+                <Footer />
             </div>
             :
         <div className="mainBody">
             <div className="articleDetails">
-                 <h3>{articles.title}</h3>
-                 <h4>{articles.source}</h4>
-                 <p>{articles.body}</p>
+                 <h2>{article.title}</h2>
+                 <h4>Quelle: {article.source}</h4>
+                 <p>{article.body}</p>
             </div> 
+            <Footer />
         </div>
 
             }
-             <Footer />
         </div>
     )
 }

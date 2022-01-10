@@ -16,8 +16,11 @@ export default function VehicleDetails() {
     const [ showSpinner, setShowState] = useState(false)
 
     const url = "https://api.vindecoder.eu/3.1/ad7b59a49533/102e012ca8/decode";
-    //const url = "https://api.vindecoder.eu/3.1/ad7b59a49533";
 
+    //How this is done properly:
+    //Images in serverFolder: controlsum and vindecode
+    //const url = "https://api.vindecoder.eu/3.1/ad7b59a49533";
+    //https://onecompiler.com/php/3xpyj34fa
     //Your API key: ad7b59a49533
     //Your Secret key: 13511f5136
 
@@ -43,7 +46,7 @@ export default function VehicleDetails() {
       //https://auto.dev/api/vin/ZPBUA1ZL9KLA00848?apikey=LOGIN_FOR_FREE_API_KEY
       const serverImage = await axios.get(`${IMAGES_SERVER}/find?model=${model}`);
       setEntry(response);
-      setArticles(serverResponse.data);
+      setArticles(serverResponse?.data);
       setImage(serverImage?.data[0].img);
 
       setTimeout(() => {
@@ -51,8 +54,7 @@ export default function VehicleDetails() {
 
         console.log(entry?.data?.decode);
         console.log(balance?.data);
-        console.log(serverImage);
-        console.log(image);
+        console.log(articles);
     } catch(error){
         console.log(error)
         setErrorCode(true);
@@ -121,8 +123,8 @@ export default function VehicleDetails() {
              </table>
             </div>
              <div className="articles">
-             {articles?.map((element,id) => (
-            <div key={id}>
+             {articles?.map((element,idkey) => (
+            <div key={idkey}>
                  <h3><NavLink to={`/article/${element._id}`} target="_blank" className="linkout" activeClassName="activeLinkout">{element.title}</NavLink></h3>
                  <h4>{element.source}</h4>
             </div>

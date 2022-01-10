@@ -1,3 +1,12 @@
+.articleDetails {
+
+	width: 80vw;
+	margin-left: 10vw;
+}
+
+.articleDetails p {
+	text-align: left;
+}
 
 #cssload-wrapper {
 	position: absolute;
